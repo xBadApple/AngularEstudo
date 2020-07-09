@@ -17,6 +17,17 @@ export class CartService {
         }
     }
 
+    increaseQty(item: CartItem) {
+        item.quantity++;
+    }
+
+    decreaseQtyy(item: CartItem) {
+        item.quantity--;
+        if (item.quantity === 0) {
+            this.removeItem(item);
+        }
+    }
+
     removeItem(item: CartItem) {
         this.items.splice(this.items.indexOf(item), 1)
     }

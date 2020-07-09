@@ -370,5 +370,61 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "address": "Avenida Coronel Marcos Konder, Centro",
+      "number": "1024",
+      "optionalAddress": "",
+      "paymentOption": "DIN",
+      "orderItems": [
+        {
+          "quantity": 2,
+          "menuId": "capp"
+        },
+        {
+          "quantity": 1,
+          "menuId": "espreso"
+        },
+        {
+          "quantity": 1,
+          "menuId": "starb"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "address": "R PEDRO GOMES DE SOUZA",
+      "number": "12",
+      "optionalAddress": "",
+      "paymentOption": "DIN",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "sunday"
+        },
+        {
+          "quantity": 2,
+          "menuId": "chocpop"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "address": "Avenida Coronel Marcos Konder, Centro",
+      "number": "1024",
+      "optionalAddress": "",
+      "paymentOption": "DIN",
+      "orderItems": [
+        {
+          "quantity": 1,
+          "menuId": "cup"
+        },
+        {
+          "quantity": 1,
+          "menuId": "straw"
+        }
+      ],
+      "id": 3
+    }
+  ]
 }
