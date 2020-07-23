@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
 @Component({
   selector: 'mt-order-summary',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderSummaryComponent implements OnInit {
 
+  rated: boolean
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  rate() {
+    this.rated = true;
   }
 
 }

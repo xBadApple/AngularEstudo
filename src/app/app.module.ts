@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 
 
-import {ROUTES} from './app.routes'
+import { ROUTES } from './app.routes'
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationService } from 'app/shared/messages/notification.service';
 import { ErrorComponent } from './error/error.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ErrorComponent } from './error/error.component';
     SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ShopService, CartService,NotificationService, OrderService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [ShopService, CartService,NotificationService, OrderService, {provide: LOCALE_ID, useValue: 'pt-BR'}, {provide: LocationStrategy, useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
