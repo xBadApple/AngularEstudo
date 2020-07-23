@@ -15,8 +15,8 @@ export class ShopService {
     }
 
 
-    shops(): Observable<Shop[]> {
-        return this.https.get(`${MEAT_API}/restaurants`).map(response => response.json()).catch(ErrorHandler.handleError);
+    shops(name?: string): Observable<Shop[]> {
+        return this.https.get(`${MEAT_API}/restaurants`, {params: {q: name}}).map(response => response.json()).catch(ErrorHandler.handleError);
     }
 
     shopById(id: string): Observable<Shop> {
