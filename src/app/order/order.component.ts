@@ -4,6 +4,7 @@ import { OrderService } from 'app/order/order.service.model';
 import { CartItem } from 'app/restaurant-details/shopping-cart/cart-item.model';
 import { Order, OrderItem } from './order.model';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class OrderComponent implements OnInit {
 
   delivery = () => this.orderService.getItens().length === 0 ? 0 : 8;
-
+  formGroup: FormGroup;
 
   paymentOptions: RadioOption[] = [
     new RadioOption("Dinheiro", "DIN"),
@@ -22,11 +23,21 @@ export class OrderComponent implements OnInit {
   ]
 
   constructor(private orderService: OrderService,
-              private router: Router)
+              private router: Router,
+              private formBuilder: FormBuilder)
               { }
 
   ngOnInit() {
 
+    this.formGroup = this.formBuilder.group({
+      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this.formBuilder.control('', [Validators.required, Validators.email]),
+      emailConfirmation: this.formBuilder.control('', [Validators.required, Validators.email]),
+      address: this.formBuilder.control('', [Validators.required]),
+      optionalAddress: this.formBuilder.control(''),
+      number: this.formBuilder.control('', [Validators.pattern(/^[0-9]*$/), Validators.required]),
+      paymentOption: this.formBuilder.control('', Validators.required),
+    });
   }
 
   cartItems(): CartItem[] {

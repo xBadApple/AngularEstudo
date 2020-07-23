@@ -1,8 +1,16 @@
 import { CartItem } from "app/restaurant-details/shopping-cart/cart-item.model";
 import { MenuItem } from "app/restaurant-details/menu-item/menu-item";
+import { Injectable } from "@angular/core";
+import { NotificationService } from "app/shared/messages/notification.service";
 
+
+
+@Injectable()
 export class CartService {
     items: CartItem[] = [];
+
+
+    constructor(private notification: NotificationService){}
 
     clear() {
         this.items = [];
@@ -15,6 +23,7 @@ export class CartService {
         } else {
             this.items.push(new CartItem(item));
         }
+        this.notification.notify(`${item.name} foi adicionado ao carrinho!`)
     }
 
     increaseQty(item: CartItem) {
@@ -30,6 +39,7 @@ export class CartService {
 
     removeItem(item: CartItem) {
         this.items.splice(this.items.indexOf(item), 1)
+        this.notification.notify(`${item.menuItem.name} foi removido do carrinho.`)
     }
 
     total(): number {
