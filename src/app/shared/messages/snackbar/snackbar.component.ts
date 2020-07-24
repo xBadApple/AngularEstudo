@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { transition, trigger, state, style, animate } from '@angular/animations';
-import { NotificationService } from 'app/shared/messages/notification.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
+import { NotificationService } from 'app/shared/messages/notification.service';
+
 
 
 @Component({

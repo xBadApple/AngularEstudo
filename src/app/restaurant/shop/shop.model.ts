@@ -6,4 +6,6 @@ export interface Shop {
     deliveryEstimate: string
     rating: number
     imagePath: string
+    hours?: string
+    about?: string
 }

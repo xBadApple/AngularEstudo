@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID} from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 
 
@@ -47,9 +47,9 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
     SharedModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    HttpClientModule,
   ],
   providers: [ShopService, CartService,NotificationService, OrderService, {provide: LOCALE_ID, useValue: 'pt-BR'}, {provide: LocationStrategy, useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
