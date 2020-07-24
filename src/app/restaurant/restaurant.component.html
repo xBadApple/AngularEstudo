@@ -11,6 +11,9 @@
                 <div class="form-group">
                     <input type="text" formControlName="searchControl" class="form-control" placeholder="O que voce está procurando?">
                 </div>
+                <div class="lead text-center" *ngIf="shops?.length === 0">
+                    <p>Não foram encontrados restaurantes com esse nome.</p>
+                </div>
             </form>
         </div>
     </div>
